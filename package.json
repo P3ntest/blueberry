@@ -1,0 +1,22 @@
+{
+  "name": "file-transfer",
+  "version": "1.0.0",
+  "description": "A simple lan file transfer application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/P3ntest/file-transfer.git"
+  },
+  "author": "P3ntest",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/P3ntest/file-transfer/issues"
+  },
+  "homepage": "https://github.com/P3ntest/file-transfer#readme",
+  "devDependencies": {
+    "electron": "^8.2.5"
+  }
+}

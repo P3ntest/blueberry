@@ -1,0 +1,8 @@
+.header {
+    height: 20px;
+    background-color: #555555;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    -webkit-app-region: drag;
+}

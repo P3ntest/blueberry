@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
-
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-  </body>
+    <title>File Transfer</title>
+    <script src="siteScript/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <link rel="stylesheet" type="text/css" href="styles/global.css">
+</head>
+<body>
+<div class="header">
+    <h1 class="header-title">FILE TRANSFER</h1>
+</div>
+<div class="content">
+    <div class="buttons">
+        <div class="button-container"><a href="siteHtml/send.html" role="button" class="button">Send Files</a></div>
+        <div class="button-container"><a href="siteHtml/send.html" role="button" class="button">Receive Files</a></div>
+        <div class="button-container"><a href="#" role="button" class="button" id="quit-button" onclick="onQuitClick()">Quit</a></div>
+    </div>
+</div>
+</body>
 </html>

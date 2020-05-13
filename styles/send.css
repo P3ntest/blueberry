@@ -23,6 +23,7 @@ body {
     width: 50vw;
     height: 80vh;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .file-description {
@@ -32,13 +33,10 @@ body {
 }
 
 .file-header {
-    width: 40vw;
 }
 
 .file-header-container {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    width: 100%;
 }
 
 .download-button {

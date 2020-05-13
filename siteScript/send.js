@@ -15,20 +15,15 @@ document.addEventListener("DOMContentLoaded", evt => {
     document.getElementById("add-file-button").addEventListener("click", ev => {
         addFiles();
     });
+    ipc.once('fileListUpdate', function(event, fileList){updateFileList(fileList);});
+    ipc.send('addFiles', []);
 });
 
 function addFiles() {
     fileDialog({ multiple: true})
         .then(files => {
             ipc.once('fileListUpdate', function(event, fileList){
-                let tempFileContainerHtml = "";
-                fileList.forEach((file) => {
-                    tempFileContainerHtml += constructFile(file);
-                });
-
-                console.log(tempFileContainerHtml);
-
-                document.getElementById("file-container").innerHTML = tempFileContainerHtml;
+                updateFileList(fileList);
             })
 
             let tempSend = [];
@@ -46,21 +41,21 @@ function constructFile(file) {
 
     let allowSecondRow = false;
 
-    // if (name.length > maxSize) {
-    //     if (allowSecondRow) {
-    //         name = file.name.substr(0, maxSize);
-    //         name += "<br>";
-    //         if (file.name.length > maxSize * 2) {
-    //             name += file.name.substr(maxSize, maxSize - 3);
-    //             name += "...";
-    //         } else {
-    //             name += file.name.substr(maxSize, file.name.length - maxSize);
-    //         }
-    //     } else {
-    //         name = file.name.substr(0, maxSize - 3);
-    //         name += "...";
-    //     }
-    // }
+    if (name.length > maxSize) {
+        if (allowSecondRow) {
+            name = file.name.substr(0, maxSize);
+            name += "<br>";
+            if (file.name.length > maxSize * 2) {
+                name += file.name.substr(maxSize, maxSize - 3);
+                name += "...";
+            } else {
+                name += file.name.substr(maxSize, file.name.length - maxSize);
+            }
+        } else {
+            name = file.name.substr(0, maxSize - 3);
+            name += "...";
+        }
+    }
 
     let currentFile = "<div class=\"file\">" +
         "                    <div class=\"file-header-container\">\n" +
@@ -79,4 +74,15 @@ function bytesToSize(bytes) {
     if (bytes == 0) return '0 Byte';
     let i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
     return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+}
+
+function updateFileList(fileList) {
+    let tempFileContainerHtml = "";
+    fileList.forEach((file) => {
+        tempFileContainerHtml += constructFile(file);
+    });
+
+    console.log(tempFileContainerHtml);
+
+    document.getElementById("file-container").innerHTML = tempFileContainerHtml;
 }

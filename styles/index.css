@@ -6,3 +6,35 @@
     width: 100vw;
     -webkit-app-region: drag;
 }
+
+.main-button {
+    margin: auto;
+    width: 150px;
+}
+
+.buttons {
+    height: 60vh;
+    margin: 0;
+    padding: 0;
+    margin-top: 26vh;
+    width: 100vw;
+}
+
+.button-container {
+    height: 10vh;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    display: flex;
+}
+
+.author {
+    width: 100vw;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    //background-color: green;
+    transform: translateY(20px) translateX(-20px);
+    color: gray;
+    font-family: sans-serif;
+}

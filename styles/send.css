@@ -1,0 +1,77 @@
+body {
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+.setting-panel {
+    height: 90vh;
+}
+
+.files-panel {
+    height: 99vh;
+    border-style: none;
+    border-left-style: solid;
+    border-color: gray;
+}
+
+.file-header-container {
+
+}
+
+.download-button {
+    height: 1em;
+    width: 1em;
+}
+
+.bi-x {
+    margin: 0;
+    padding: 0;
+}
+
+.file {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.file-description {
+    color: gray;
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+.file h1 {
+    font-size: 15px;
+    color: white;
+}
+
+.panel {
+    width: 50vw;
+    margin: 0;
+}
+
+.back-button-container {
+    position: absolute;
+    left: 25px;
+    bottom: 30px;
+}
+
+.back-button {
+    margin-bottom: 100px;
+    transform: scale(10);
+}
+
+.panels {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.content {
+
+}

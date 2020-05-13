@@ -3,6 +3,10 @@ body {
     background-color: #444444;
 }
 
+p {
+
+}
+
 .header {
     height: 20px;
     background-color: #555555;
@@ -27,14 +31,6 @@ body {
     height: 100%;
 }
 
-.buttons {
-    height: 60vh;
-    margin: 0;
-    padding: 0;
-    margin-top: 26vh;
-    width: 100vw;
-}
-
 .button {
     border-style: solid;
     border-color: #0bff78;
@@ -44,12 +40,8 @@ body {
     text-decoration: none;
     color: #ffffff;
     padding: 10px;
-    width: 150px;
     text-align: center;
-
     transition: transform ease-in-out 0.1s, color ease-in-out 0.1s, background-color ease-in-out 0.1s;
-
-    margin: auto;
 }
 
 .button:hover {
@@ -58,10 +50,12 @@ body {
     color: white;
 }
 
-.button-container {
-    height: 10vh;
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    display: flex;
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }

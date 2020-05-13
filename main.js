@@ -1,6 +1,13 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow, Menu} = require('electron')
+const ipc = require('electron').ipcMain;
 const path = require('path')
+
+console.log(ipc);
+
+ipc.on('closeApp', function(){
+  app.quit();
+});
 
 let win;
 
@@ -10,12 +17,13 @@ function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true
     },
     frame: false
   })
 
-  win.openDevTools({detach: true});
+  //win.openDevTools({detach: true});
 
   win.loadFile('index.html')
 }
@@ -37,15 +45,9 @@ app.on(`ready`, () => {
   Menu.setApplicationMenu(null);
 });
 
-// Quit when all windows are closed.
+
 app.on('window-all-closed', function () {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') app.quit()
 })
-
-function getApp() {
-  return app;
-}
-
-module.exports = getApp;

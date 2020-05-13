@@ -1,10 +1,14 @@
-const remote = require('electron').remote;
+const ipc = require('electron').ipcRenderer;
 
-console.log("halloaaa");
+console.log("index.js started");
+
+document.addEventListener("DOMContentLoaded", evt => {
+    document.getElementById("quit-button").addEventListener("click", ev => {
+        onQuitClick();
+    });
+})
+
 
 function onQuitClick() {
-    let window = remote.getCurrentWindow();
-    window.close();
-    document.getElementById("quit-button").innerHTML = "";
-    alert("hi");
+    ipc.send('closeApp', true);
 }

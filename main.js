@@ -5,16 +5,11 @@ const path = require('path')
 
 let currentFileList = [];
 
-ipc.on('closeApp', function(){
-  app.quit();
-});
+ipc.on('closeApp', function(){app.quit();});
 
 ipc.on('addFiles', function(event, data) {
-  //data = JSON.parse(data);
-  console.log(data);
   currentFileList = [].concat(currentFileList, data); // Merge two arrays
   event.sender.send('fileListUpdate', currentFileList);
-  console.log(currentFileList);
 });
 
 let win;
@@ -31,7 +26,7 @@ function createWindow () {
     frame: false
   })
 
-  //win.openDevTools({detach: true});
+  win.openDevTools({detach: true});
 
   win.loadFile('index.html')
 }

@@ -3,8 +3,34 @@ body {
     font-family: sans-serif;
 }
 
+.settings {
+    margin-top: 30px;
+    width: 90%;
+}
+
+.setting-desc {
+    color: white;
+    font-size: 25px;
+}
+
+.password-setting {
+    margin-left: 20px;
+}
+
+.setting {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+    align-items: center;
+    height: 5vh;
+}
+
 .setting-panel {
     height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .files-panel {

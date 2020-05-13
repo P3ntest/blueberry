@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", evt => {
     });
 
     document.getElementById("start-button").addEventListener("click", ev => {
+        if (document.getElementById("use-password-checkbox"))
         ipc.send('startHost', {});
     });
 
@@ -33,7 +34,7 @@ function addFiles() {
 
             let tempSend = [];
             for (i = 0; i < files.length; i++) {
-                tempSend.push({name: files[i].name, size: files[i].size});
+                tempSend.push({name: files[i].name, size: files[i].size, path: files[i].path});
             }
             ipc.send('addFiles', tempSend);
         })
@@ -67,7 +68,7 @@ function constructFile(file) {
         "                        <h1 class=\"file-header\">" + name + "</h1>\n" +
         "                        <p class=\"file-description\">" + bytesToSize(file.size) + "</p>\n" +
         "                    </div>\n" +
-        "                    <a href=\"#\" role=\"button\" class=\"button download-button\">\n" +
+        "                    <a href=\"#\" role=\"button\" id=\"remove-file-button" + file.id + "\" class=\"button download-button\">\n" +
         xSvg +
         "                    </a>\n" +
         "                </div>";
@@ -90,4 +91,11 @@ function updateFileList(fileList) {
     console.log(tempFileContainerHtml);
 
     document.getElementById("file-container").innerHTML = tempFileContainerHtml;
+
+    fileList.forEach((file) => {
+       document.getElementById("remove-file-button" + file.id).addEventListener("click", () => {
+           ipc.once('fileListUpdate', function(event, fileList){updateFileList(fileList);});
+           ipc.send('removeFile', file.id);
+       });
+    });
 }

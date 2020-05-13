@@ -98,6 +98,16 @@ h2 {
     margin-bottom: 0px;
 }
 
+.file-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+
 .form-body {
     //background-color: #0bff78;
     margin-top: 30vh;

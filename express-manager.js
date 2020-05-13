@@ -2,7 +2,11 @@ const express = require('express');
 
 const path = require("path");
 
+const bodyParser = require('body-parser');
+
 const publicDir = path.join(__dirname + "/public");
+
+const ipc = require('electron').ipcMain;
 
 class ExpressManager {
     app;
@@ -20,14 +24,21 @@ class ExpressManager {
         this.filelist = this.filelist
         if (this.running == false) {
             this.app = express();
+            this.app.use(express.json());
+            this.app.use(bodyParser.json());
+            this.app.use(bodyParser.urlencoded({ extended: false }));
             if (password != null) {
-                this.password = password;
+                this.password = password.trim();
                 this.app.get("/", (req, res) => {
                     res.sendFile(path.join(__dirname, "/publicHidden/login.html"));
                 });
 
                 this.app.post("/", (req, res) => {
-                    res.send
+                    if (req.body.password === this.password) {
+                        res.sendFile(path.join(__dirname, "/publicHidden/fileDisplay.html"));
+                    } else {
+                        res.redirect("/?error=true");
+                    }
                 });
             } else {
                 this.password = null;

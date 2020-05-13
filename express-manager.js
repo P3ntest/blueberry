@@ -10,11 +10,14 @@ class ExpressManager {
     running = false;
     password = null;
 
+    filelist = [];
+
     constructor() {
 
     }
 
-    open(port, password) {
+    open(port, password, filelist) {
+        this.filelist = this.filelist
         if (this.running == false) {
             this.app = express();
             if (password != null) {
@@ -24,7 +27,7 @@ class ExpressManager {
                 });
 
                 this.app.post("/", (req, res) => {
-
+                    res.send
                 });
             } else {
                 this.password = null;

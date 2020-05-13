@@ -16,6 +16,73 @@ body {
     color: gray;
 }
 
+.login-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    border-style: solid;
+    border-color: #0bff78;
+    border-radius: 15vw;
+    font-size: 15px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #ffffff;
+
+    padding: 0;
+
+    background-color: transparent;
+
+    width: 4em;
+    height: 4em;
+
+    transition: transform ease-in-out 0.1s, color ease-in-out 0.1s, background-color ease-in-out 0.1s;
+}
+
+input {
+    border-style: solid;
+    border-color: #0bff78;
+    border-radius: 15vw;
+    font-family: sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    color: #ffffff;
+
+    padding: 0;
+    margin-right: 20px;
+
+    background-color: transparent;
+
+    width: 11em;
+    height: 4em;
+
+    text-align: center;
+
+    outline: none !important;
+
+    transition: transform ease-in-out 0.1s, color ease-in-out 0.1s, background-color ease-in-out 0.1s;
+}
+
+input:hover {
+    transform: scale(1.1);
+}
+
+.button:hover {
+    transform: scale(1.1);
+    background-color: #0bff78;
+}
+
+svg {
+    margin: auto;
+}
+
+.login-form {
+    padding-top: 4vh;
+}
+
 h1 {
     color: white;
     font-size: 3em;

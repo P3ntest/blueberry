@@ -29,12 +29,9 @@
 }
 
 .author {
-    width: 100vw;
-    text-align: right;
-    margin: 0;
-    padding: 0;
-    //background-color: green;
-    transform: translateY(20px) translateX(-20px);
-
+    right: 10px;
+    bottom: 0px;
+    position: absolute;
+    color: gray;
     font-family: sans-serif;
 }

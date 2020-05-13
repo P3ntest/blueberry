@@ -13,7 +13,7 @@ ipc.on('addFiles', function(event, data) {
 });
 
 ipc.on('startHost', function(event, data) {
-  expressManager.open(3000, "1234");
+  expressManager.open(3000, "1234", currentFileList);
 });
 
 let win;

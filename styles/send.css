@@ -21,10 +21,24 @@ body {
 
 .files-container {
     width: 50vw;
+    height: 80vh;
+    overflow-y: scroll;
+}
+
+.file-description {
+    color: gray;
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+.file-header {
+    width: 40vw;
 }
 
 .file-header-container {
-
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .download-button {
@@ -60,12 +74,6 @@ body {
     padding: 30px;
     padding-bottom: 5px;
     padding-top: 5px;
-}
-
-.file-description {
-    color: gray;
-    font-weight: bold;
-    margin-top: 3px;
 }
 
 .file h1 {

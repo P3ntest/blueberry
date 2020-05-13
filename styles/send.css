@@ -13,8 +13,13 @@ body {
     font-size: 25px;
 }
 
-.password-setting {
-    margin-left: 20px;
+.start-button-setting {
+    justify-content: stretch;
+    margin-top: 50px;
+}
+
+.start-button {
+    width: 100%;
 }
 
 .setting {
@@ -24,6 +29,11 @@ body {
     padding: 5px;
     align-items: center;
     height: 5vh;
+}
+
+.subsetting {
+    margin-left: 20px;
+    display: none;
 }
 
 .setting-panel {

@@ -31,15 +31,34 @@
     <div class="panels">
         <div class="setting-panel panel">
             <div class="pre-start-settings settings" id="pre-settings">
+
+
                 <div class="setting">
-                    <span class="setting-desc">Use password?</span>
+                    <span class="setting-desc">Use Password</span>
                     <label class="switch">
                         <input type="checkbox" id="use-password-checkbox">
                         <span class="slider round"></span>
                     </label>
                 </div>
-                <div class="setting password-setting" id="password-setting">
+                <div class="setting password-setting subsetting" id="password-setting">
                     <input type="text" id="password-input" class="textinput" placeholder="Password"><div></div>
+                </div>
+
+
+                <div class="setting">
+                    <span class="setting-desc">Custom Port</span>
+                    <label class="switch">
+                        <input type="checkbox" id="custom-port-checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="setting port-setting subsetting" id="port-setting">
+                    <input type="text" id="port-input" class="textinput" placeholder="3000"><div></div>
+                </div>
+
+
+                <div class="setting start-button-setting" id="start-button-setting">
+                    <a id="start-button" role="button" class="button start-button">Start</a>
                 </div>
             </div>
         </div>

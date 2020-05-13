@@ -26,7 +26,7 @@ function createWindow () {
     frame: false
   })
 
-  win.openDevTools({detach: true});
+  //win.openDevTools({detach: true});
 
   win.loadFile('index.html')
 }

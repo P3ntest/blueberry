@@ -55,6 +55,7 @@ p {
     padding: 8px;
     text-align: center;
     background-color: #555555;
+    outline: none !important;
 }
 
 .button:hover {

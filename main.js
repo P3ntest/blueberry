@@ -23,8 +23,11 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true
     },
+    transparent: true,
     frame: false
   })
+
+  win.setResizable(false);
 
   //win.openDevTools({detach: true});
 

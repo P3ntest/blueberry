@@ -4,7 +4,9 @@
   "description": "A simple lan file transfer application.",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "repository": {
     "type": "git",
@@ -17,9 +19,16 @@
   },
   "homepage": "https://github.com/P3ntest/file-transfer#readme",
   "devDependencies": {
-    "electron": "^8.2.5"
+    "electron": "^8.2.5",
+    "electron-builder": "^22.6.0"
   },
   "dependencies": {
     "file-dialog": "0.0.8"
+  },
+  "build": {
+    "appId": "me.P3ntest",
+    "mac": {
+      "category": "file-transfer"
+    }
   }
 }

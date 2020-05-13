@@ -5,11 +5,37 @@ body {
     margin: 0;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    font-family: sans-serif;
+}
+
+.author {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    color: gray;
+}
+
+h1 {
+    color: white;
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 15px;
+    color: #888888;
+    font-weight: bold;
+    letter-spacing: -1px;
+    margin-top: 1px;
+    margin-bottom: 0px;
 }
 
 .form-body {
-    width: 100px;
-    height: 100px;
-    background-color: #0bff78;
+    //background-color: #0bff78;
+    margin-top: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }

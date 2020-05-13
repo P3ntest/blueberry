@@ -1,7 +1,7 @@
-const expressManager = require("express-manager")();
+const path = require('path')
+const expressManager = new require(path.join(__dirname, "/express-manager.js"))();
 const {app, BrowserWindow, Menu} = require('electron')
 const ipc = require('electron').ipcMain;
-const path = require('path')
 
 let currentFileList = [];
 
@@ -10,6 +10,10 @@ ipc.on('closeApp', function(){app.quit();});
 ipc.on('addFiles', function(event, data) {
   currentFileList = [].concat(currentFileList, data); // Merge two arrays
   event.sender.send('fileListUpdate', currentFileList);
+});
+
+ipc.on('startHost', function(event, data) {
+  expressManager.open(3000, "1234");
 });
 
 let win;
@@ -23,11 +27,10 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true
     },
+    resizable: false,
     transparent: true,
     frame: false
-  })
-
-  win.setResizable(false);
+  });
 
   //win.openDevTools({detach: true});
 

@@ -11,20 +11,29 @@ class ExpressManager {
     password = null;
 
     constructor() {
-        this.app = express();
+
     }
 
     open(port, password) {
         if (this.running == false) {
-            if (password != null)
+            this.app = express();
+            if (password != null) {
                 this.password = password;
-            else
+                this.app.get("/", (req, res) => {
+                    res.sendFile(path.join(__dirname, "/publicHidden/login.html"));
+                });
+
+                this.app.post("/", (req, res) => {
+
+                });
+            } else {
                 this.password = null;
+            }
 
 
-            this.server = app.listen(port);
+            this.server = this.app.listen(port);
             this.running = true;
-            app.use(express.static(publicDir));
+            this.app.use(express.static(publicDir));
         }
     }
 
@@ -35,4 +44,8 @@ class ExpressManager {
     }
 }
 
-module.exports = ExpressManager;
+
+function createInstance() {
+    return new ExpressManager();
+}
+module.exports = createInstance;

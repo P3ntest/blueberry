@@ -15,6 +15,11 @@ document.addEventListener("DOMContentLoaded", evt => {
     document.getElementById("add-file-button").addEventListener("click", ev => {
         addFiles();
     });
+
+    document.getElementById("start-button").addEventListener("click", ev => {
+        ipc.send('startHost', {});
+    });
+
     ipc.once('fileListUpdate', function(event, fileList){updateFileList(fileList);});
     ipc.send('addFiles', []);
 });

@@ -18,5 +18,8 @@
   "homepage": "https://github.com/P3ntest/file-transfer#readme",
   "devDependencies": {
     "electron": "^8.2.5"
+  },
+  "dependencies": {
+    "file-dialog": "0.0.8"
   }
 }

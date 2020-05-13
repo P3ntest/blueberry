@@ -3,10 +3,18 @@ const {app, BrowserWindow, Menu} = require('electron')
 const ipc = require('electron').ipcMain;
 const path = require('path')
 
-console.log(ipc);
+let currentFileList = [];
+
+
+
 
 ipc.on('closeApp', function(){
   app.quit();
+});
+
+ipc.on('addFiles', function(event, data) {
+  currentFileList = [].concat(currentFileList, data); // Merge two arrays
+  event.sender.send('fileListUpdate', currentFileList);
 });
 
 let win;
@@ -32,9 +40,7 @@ function createWindow () {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on(`ready`, () => {
-  createWindow()
-
-  console.log("hallo")
+  createWindow();
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the

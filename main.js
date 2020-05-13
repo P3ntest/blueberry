@@ -1,4 +1,4 @@
-// Modules to control application life and create native browser window
+const expressManager = require("express-manager")();
 const {app, BrowserWindow, Menu} = require('electron')
 const ipc = require('electron').ipcMain;
 const path = require('path')

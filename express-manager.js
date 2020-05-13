@@ -41,6 +41,9 @@ class ExpressManager {
                     }
                 });
             } else {
+                this.app.get("/", (req, res) => {
+                    res.sendFile(path.join(__dirname, "/publicHidden/fileDisplay.html"));
+                });
                 this.password = null;
             }
 

@@ -2,7 +2,7 @@ const path = require('path')
 const expressManager = new require(path.join(__dirname, "/express-manager.js"))();
 const {app, BrowserWindow, Menu} = require('electron')
 const ipc = require('electron').ipcMain;
-
+const ip = requre("ip");
 let currentFileList = [];
 
 let currentFileId = 0;
@@ -21,7 +21,8 @@ ipc.on('addFiles', function (event, data) {
 });
 
 ipc.on('startHost', function (event, data) {
-    expressManager.open(3000, "1234", currentFileList);
+    expressManager.open(data.usePort ? data.port : 80, data.usePassword ? data.password : null, currentFileList);
+    event.sender.send('runningUpdate', {host: ip.address() + data.usePort ? ":" + data.port : "", password: data.usePassword ? data.password : null});
 });
 
 ipc.on("removeFile", (event, id) => {

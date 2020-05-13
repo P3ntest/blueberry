@@ -16,11 +16,6 @@ document.addEventListener("DOMContentLoaded", evt => {
         addFiles();
     });
 
-    document.getElementById("start-button").addEventListener("click", ev => {
-        if (document.getElementById("use-password-checkbox"))
-        ipc.send('startHost', {});
-    });
-
     ipc.once('fileListUpdate', function(event, fileList){updateFileList(fileList);});
     ipc.send('addFiles', []);
 });

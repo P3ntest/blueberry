@@ -53,11 +53,8 @@ class ExpressManager {
 
             this.app.get("/dlf*", (req, res) => {
                 let fileId = (req.url.match(/\d+$/) || []).pop();
-                console.log("client requesting file: " + fileId);
                 this.fileList.forEach(function (file) {
-                    console.log(file.id);
                    if (file.id == fileId) {
-                       console.log("found file: " + file.path);
                        res.download(file.path);
                    }
                 });
@@ -81,7 +78,6 @@ class ExpressManager {
             this.connections.forEach(curr => curr.end());
 
             this.server.close();
-            console.log("server close");
             this.running = false;
         }
     }

@@ -58,6 +58,11 @@ function updateSettingsPanel(data) {
 
         document.getElementById("info_address_string").innerText = "Address: " + data.data.host;
 
+
+        let removeButtons = document.getElementsByClassName("download-button");
+        for (let i = 0; i < removeButtons.length; i++) {
+            removeButtons[i].disabled = true;
+        }
     } else {
         document.getElementById("post-settings").style.display = "none";
         document.getElementById("pre-settings").style.display = "block";
@@ -68,6 +73,11 @@ function updateSettingsPanel(data) {
         document.getElementById("custom-port-checkbox").checked = data.data.usePort;
         if (data.data.usePort)
             document.getElementById("port-input").value = data.data.port;
+
+        let removeButtons = document.getElementsByClassName("download-button");
+        for (let i = 0; i < removeButtons.length; i++) {
+            removeButtons[i].disabled = false;
+        }
 
         updateSwitchCorres();
     }

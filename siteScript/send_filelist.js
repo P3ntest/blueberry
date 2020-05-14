@@ -63,9 +63,9 @@ function constructFile(file) {
         "                        <h1 class=\"file-header\">" + name + "</h1>\n" +
         "                        <p class=\"file-description\">" + bytesToSize(file.size) + "</p>\n" +
         "                    </div>\n" +
-        "                    <a href=\"#\" role=\"button\" id=\"remove-file-button" + file.id + "\" class=\"button download-button\">\n" +
+        "                    <button id=\"remove-file-button" + file.id + "\" class=\"button download-button\">\n" +
         xSvg +
-        "                    </a>\n" +
+        "                    </button>\n" +
         "                </div>";
     return currentFile;
 }
@@ -82,8 +82,6 @@ function updateFileList(fileList) {
     fileList.forEach((file) => {
         tempFileContainerHtml += constructFile(file);
     });
-
-    console.log(tempFileContainerHtml);
 
     document.getElementById("file-container").innerHTML = tempFileContainerHtml;
 

@@ -76,13 +76,32 @@ body {
 }
 
 .download-button {
-    height: 1em;
-    width: 1em;
+    padding: 0;
+    font-size: 30px;
+    border-style: none;
+}
+
+.download-button:hover {
+    background-color: transparent;
+    transform: scale(0.89);
+}
+
+.download-button:hover svg {
+    fill: gray;
+}
+
+.download-button:disabled  {
+    display: none;
+}
+
+button {
+    background-color: transparent;
+    outline: none !important;
 }
 
 .add-file-button {
-    width: 2em;
-    height: 2em;
+    width: 3em;
+    height: 3em;
     position: fixed;
     bottom: 20px;
     right: 20px;

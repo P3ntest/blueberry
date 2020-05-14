@@ -14,6 +14,8 @@ class ExpressManager {
     running = false;
     password = null;
 
+    connections = [];
+
     filelist = [];
 
     constructor() {
@@ -21,12 +23,13 @@ class ExpressManager {
     }
 
     open(port, password, filelist) {
-        this.filelist = this.filelist
-        if (this.running == false) {
+        if (this.running === false) {
             this.app = express();
             this.app.use(express.json());
             this.app.use(bodyParser.json());
             this.app.use(bodyParser.urlencoded({ extended: false }));
+
+
             if (password != null) {
                 this.password = password.trim();
                 this.app.get("/", (req, res) => {
@@ -49,14 +52,24 @@ class ExpressManager {
 
 
             this.server = this.app.listen(port);
+
+            this.server.on('connection', connection => {
+                this.connections.push(connection);
+                connection.on('close', () => this.connections = this.connections.filter(curr => curr !== connection));
+            });
+
             this.running = true;
             this.app.use(express.static(publicDir));
         }
     }
 
     close() {
-        if (this.running != false) {
+        if (this.running === true) {
+            this.connections.forEach(curr => curr.end());
+
             this.server.close();
+            console.log("server close");
+            this.running = false;
         }
     }
 }

@@ -39,6 +39,7 @@ class ExpressManager {
                 this.app.post("/", (req, res) => {
                     if (req.body.password === this.password) {
                         res.sendFile(path.join(__dirname, "/publicHidden/fileDisplay.html"));
+                        res.send("Jaa");
                     } else {
                         res.redirect("/?error=true");
                     }
@@ -46,6 +47,7 @@ class ExpressManager {
             } else {
                 this.app.get("/", (req, res) => {
                     res.sendFile(path.join(__dirname, "/publicHidden/fileDisplay.html"));
+                    res.send("Jaa");
                 });
                 this.password = null;
             }

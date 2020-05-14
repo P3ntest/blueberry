@@ -59,6 +59,8 @@ function updateSettingsPanel(data) {
         document.getElementById("info_address_string").innerText = "Address: " + data.data.host;
 
 
+        document.getElementById("add-file-button").style.display = "none";
+
         let removeButtons = document.getElementsByClassName("download-button");
         for (let i = 0; i < removeButtons.length; i++) {
             removeButtons[i].disabled = true;
@@ -73,6 +75,8 @@ function updateSettingsPanel(data) {
         document.getElementById("custom-port-checkbox").checked = data.data.usePort;
         if (data.data.usePort)
             document.getElementById("port-input").value = data.data.port;
+
+        document.getElementById("add-file-button").style.display = "block";
 
         let removeButtons = document.getElementsByClassName("download-button");
         for (let i = 0; i < removeButtons.length; i++) {

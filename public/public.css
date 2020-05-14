@@ -90,11 +90,37 @@ h1 {
 }
 
 h2 {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 3px;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.download-button {
+    width: 120px;
+    font-size: 20px;
+    text-align: center;
+    height: auto;
+    padding: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.file {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px;
+}
+
+h3 {
     font-size: 15px;
     color: #888888;
     font-weight: bold;
     letter-spacing: -1px;
-    margin-top: 1px;
+    margin-top: 0px;
     margin-bottom: 0px;
 }
 

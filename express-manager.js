@@ -16,14 +16,15 @@ class ExpressManager {
 
     connections = [];
 
-    filelist = [];
+    fileList = [];
 
     constructor() {
 
     }
 
-    open(port, password, filelist) {
+    open(port, password, fileList) {
         if (this.running === false) {
+            this.fileList = fileList;
             this.app = express();
             this.app.use(express.json());
             this.app.use(bodyParser.json());
@@ -38,19 +39,29 @@ class ExpressManager {
 
                 this.app.post("/", (req, res) => {
                     if (req.body.password === this.password) {
-                        res.sendFile(path.join(__dirname, "/publicHidden/fileDisplay.html"));
-                        res.send("Jaa");
+                        this.showFileList(res);
                     } else {
                         res.redirect("/?error=true");
                     }
                 });
             } else {
                 this.app.get("/", (req, res) => {
-                    res.sendFile(path.join(__dirname, "/publicHidden/fileDisplay.html"));
-                    res.send("Jaa");
+                    this.showFileList(res);
                 });
                 this.password = null;
             }
+
+            this.app.get("/dlf*", (req, res) => {
+                let fileId = (req.url.match(/\d+$/) || []).pop();
+                console.log("client requesting file: " + fileId);
+                this.fileList.forEach(function (file) {
+                    console.log(file.id);
+                   if (file.id == fileId) {
+                       console.log("found file: " + file.path);
+                       res.download(file.path);
+                   }
+                });
+            })
 
 
             this.server = this.app.listen(port);
@@ -74,8 +85,25 @@ class ExpressManager {
             this.running = false;
         }
     }
+
+    showFileList(response) {
+        let tempSendFileList = [];
+        this.fileList.forEach(file => {
+           tempSendFileList.push({id: file.id, name: file.name, size: bytesToSize(file.size)});
+        });
+
+        response.render(path.join(__dirname, "/publicHidden/fileDisplay.ejs"), {
+            files: this.fileList
+        });
+    }
 }
 
+function bytesToSize(bytes) {
+    let sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    if (bytes == 0) return '0 Byte';
+    let i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+    return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+}
 
 function createInstance() {
     return new ExpressManager();

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="public.css" type="text/css">
+    <title>BLUEBERRY</title>
+</head>
+<body>
+<div class="author">Julius van Voorden © 2020</div>
+<div class="file-container">
+    <% files.forEach(function(file) { %>
+        <div class="file">
+            <a href="<%= "/dlf" + file.id %>" role="button" class="button download-button">Download</a>
+            <div class="file-title">
+                <h2 class="file-description"><%= file.name %></h2>
+                <h3 class="file-sub"><%= file.size %></h3>
+            </div>
+        </div>
+    <% }); %>
+
+</div>
+
+</body>
+</html>

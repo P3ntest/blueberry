@@ -9,6 +9,7 @@ let currentFileId = 0;
 
 ipc.on('closeApp', function () {
     app.quit();
+    expressManager.close();
 });
 
 let currSendingSettings = {

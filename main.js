@@ -64,19 +64,6 @@ function getRunningUpdate() {
 }
 
 ipc.on("removeFile", (event, id) => {
-    // console.log("id to remove:" + id);
-    // let tempFileList = [];
-    // currentFileList.forEach((file) => {
-    //     tempFileList.push(file);
-    // });
-    // for (let i = tempFileList.length - 1; i > -1; i--) {
-    //     console.log("found id " + tempFileList[i].id + " at pos " + i);
-    //     if (tempFileList[i].id == id) {
-    //         console.log("removing");
-    //         currentFileList.slice(i, 1);
-    //     }
-    // }
-    // console.log(currentFileList);
 
     currentFileList = currentFileList.filter((currentValue, index, arr) => {
         return currentValue.id != id;

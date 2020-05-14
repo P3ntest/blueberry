@@ -97,6 +97,13 @@ h2 {
     padding-top: 0;
 }
 
+h4 {
+    color: orangered;
+    font-weight: bold;
+    font-size: 23px;
+    text-align: center;
+}
+
 .download-button {
     width: 120px;
     font-size: 20px;
@@ -141,4 +148,8 @@ h3 {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+}
+
+#password-incorrect {
+    display: none;
 }

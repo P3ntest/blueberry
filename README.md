@@ -1,5 +1,7 @@
 # Blueberry
 
+[![Generic badge](https://img.shields.io/badge/Framework-NodeJS-yellow.svg)](https://shields.io/)  [![Generic badge](https://img.shields.io/badge/Build-Passing-success.svg)](https://shields.io/)  [![Generic badge](https://img.shields.io/badge/npm-6.14.4-orange.svg)](https://shields.io/) [![Generic badge](https://img.shields.io/badge/Version-1.2.4-blue.svg)](https://shields.io/) [![Generic badge](https://img.shields.io/badge/Portable%3F-yes-informational.svg)](https://shields.io/)
+
 Blueberry is a free and open source file transfer application.
 
   - Transfer large files

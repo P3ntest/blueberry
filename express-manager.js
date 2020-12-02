@@ -89,7 +89,7 @@ class ExpressManager {
         });
 
         response.render(path.join(__dirname, "/publicHidden/fileDisplay.ejs"), {
-            files: this.fileList
+            files: tempSendFileList
         });
     }
 }
